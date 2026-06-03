@@ -5,7 +5,7 @@
 > DO THIS
 
 ```bash
-git clone repo-name
+git clone KhelMaidan
 cd KhelMaidan
 npm install
 npm run dev
