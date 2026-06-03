@@ -8,7 +8,6 @@
 git clone https://github.com/Sonicsmrit/KhelMaidan.git
 cd KhelMaidan
 npm install
-npm run dev
 ```
 ## Than you can do 
 ```bash
