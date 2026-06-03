@@ -45,11 +45,11 @@ export default function FlowingLines() {
         }
         return {
             x, y, px: x, py: y,
-            speed:     rand(0.6, 1.3),
+            speed:     rand(1.5, 3.0),
             life:      rand(400, 900),
             age:       Math.random() < 0.5 ? Math.floor(rand(0, 400)) : 0,
             opacity:   rand(0.06, 0.18),  // very subtle
-            thickness: rand(0.4, 1.2),
+            thickness: rand(1, 3),
         };
         }
 
