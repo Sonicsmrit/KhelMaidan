@@ -1,8 +1,13 @@
 import Navbar from '../components/Navbar'
-import footer from '../components/Footer'
+import Footer from '../components/footer'
+import Construction from '../components/underconstruction'
+
 function Search() {
     return(
       <>
+        <Navbar />
+        <Construction />
+        <Footer />
       </>
     
     )
