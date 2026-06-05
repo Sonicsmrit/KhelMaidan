@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 function Sidebar() {
-  const [selectedSport, setSelectedSport] = useState("Football");
-  const [location, setLocation] = useState("Kathmandu");
+  const [selectedSport, setSelectedSport] = useState(null);
+  const [location, setLocation] = useState(null);
   const [price, setPrice] = useState(3000);
   const [courtType, setCourtType] = useState("All Types");
 
-  const sports = ["Football", "Futsal", "Cricket", "Basketball"];
+  const sports = ["Football", "Cricket", "Basketball","Tennis", "Badminton", "Volleyball"];
 
   return (
     <aside>
@@ -78,10 +78,12 @@ function Sidebar() {
         </div>
       </div>
 
+      
+
       <button className="btn-clear" onClick={() => {
-        setSelectedSport("Football");
-        setLocation("Kathmandu");
-        setPrice(0);
+        setSelectedSport(null);
+        setLocation(null);
+        setPrice(3000);
         setCourtType("All Types");
       }}>
         Clear All Filters
