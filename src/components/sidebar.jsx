@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Sidebar() {
   const [selectedSport, setSelectedSport] = useState(null);
-  const [locations, setLocations] = useState(["Kathmandu"]);
+  const [locations, setLocations] = useState([]);
   const [price, setPrice] = useState(3000);
   const [courtType, setCourtType] = useState("All Types");
 
@@ -85,7 +85,7 @@ function Sidebar() {
 
       <button className="btn-clear" onClick={() => {
         setSelectedSport(null);
-        setLocation(null);
+        setLocations([]);
         setPrice(3000);
         setCourtType("All Types");
       }}>
