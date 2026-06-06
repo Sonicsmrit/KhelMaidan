@@ -26,22 +26,25 @@ function Sidebar() {
       </div>
 
       <div className="filter-section">
-        <h4>Location</h4>
-        <div className="radio-group">
-          {["Kathmandu", "Lalitpur", "Bhaktapur"].map((loc) => (
-            <label key={loc} className="radio-item">
-              <input
-                type="radio"
-                name="loc"
-                checked={location === loc}
-                onChange={() => setLocation(loc)}
-              />
-              <span className="radio-dot"></span>
-              {loc}
-            </label>
-          ))}
-        </div>
-      </div>
+  <h4>Location</h4>
+  <div className="checkbox-group">
+    {["Kathmandu", "Lalitpur", "Bhaktapur"].map((loc) => (
+      <label key={loc} className="checkbox-item">
+        <input
+          type="checkbox"
+          checked={locations.includes(loc)}
+          onChange={() =>
+            setLocations((prev) =>
+              prev.includes(loc) ? prev.filter((l) => l !== loc) : [...prev, loc]
+            )
+          }
+        />
+        <span className="checkbox-box"></span>
+        {loc}
+      </label>
+    ))}
+  </div>
+</div>
 
       <div className="filter-section">
         <h4>Price Range (NPR)</h4>
