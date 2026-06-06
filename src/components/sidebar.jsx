@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function Sidebar() {
   const [selectedSport, setSelectedSport] = useState(null);
-  const [location, setLocation] = useState(null);
+  const [locations, setLocations] = useState(["Kathmandu"]);
   const [price, setPrice] = useState(3000);
   const [courtType, setCourtType] = useState("All Types");
 
