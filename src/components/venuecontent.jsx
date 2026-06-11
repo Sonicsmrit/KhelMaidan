@@ -98,8 +98,13 @@ export default function VenueResults() {
   const [sortBy, setSortBy] = useState("Popularity");
   const [visibleCount, setVisibleCount] = useState(6);
 
-  const visibleVenues = venues.slice(0, visibleCount);
+const sorted = [...venues];
 
+if (sortBy === "Price: Low to High") sorted.sort((a, b) => a.price - b.price);
+if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
+if (sortBy === "Rating") sorted.sort((a, b) => b.rating - a.rating);
+
+const visibleVenues = sorted.slice(0, visibleCount);
   function handleLoadMore() {
     setVisibleCount((prev) => Math.min(prev + 6, venues.length));
   }
@@ -134,19 +139,6 @@ export default function VenueResults() {
         {visibleVenues.map((venue) => (
           <VenueCard key={venue.id} venue={venue} />
         ))}
-      </div>
-
-      <div className="results__load-more-section">
-        <p className="results__count">
-          Showing {visibleVenues.length} of {TOTAL_VENUES} venues
-        </p>
-        <button
-          className="results__load-more-btn"
-          onClick={handleLoadMore}
-          disabled={visibleCount >= venues.length}
-        >
-          LOAD MORE RESULTS
-        </button>
       </div>
     </main>
   );
