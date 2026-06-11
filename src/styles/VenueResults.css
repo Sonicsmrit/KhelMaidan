@@ -1,0 +1,241 @@
+
+.results {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 32px 24px;
+  padding-top: 84px; 
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.results__header {
+  display: flex;
+  align-items: flex-end;       
+  justify-content: space-between;
+  flex-wrap: wrap;            
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.results__eyebrow {
+  color: #4caf50;     
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 6px 0;
+}
+
+.results__title {
+  font-size: clamp(28px, 5vw, 42px);   
+  line-height: 1.15;
+  margin: 0;
+}
+
+.results__sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.results__sort-label {
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+.results__sort-select {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;            
+  padding-right: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.results__sort-select:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+.results__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .results__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .results__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.venue-card {
+  background-color: #111111;
+  border-radius: 10px;
+  overflow: hidden;            
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.venue-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
+}
+
+.venue-card__image-wrap {
+  position: relative;          
+}
+
+.venue-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.venue-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.venue-card__rating {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background-color: rgba(0, 0, 0, 0.80);
+  color: #f5c518;              
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+
+.venue-card__body {
+  padding: 16px;
+}
+
+.venue-card__name {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+}
+
+.venue-card__location {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.venue-card__pin {
+  font-size: 12px;
+}
+
+.venue-card__divider {
+  border: none;
+  border-top: 1px solid #222222;
+  margin: 14px 0;
+}
+
+.venue-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.venue-card__price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.venue-card__per-hour {
+  font-size: 10px;
+  font-weight: 600;
+  color: #888888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venue-card__price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.venue-card__btn {
+  background-color: #4caf50;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+
+.venue-card__btn:hover {
+  background-color: #43a047;
+}
+
+.results__load-more-section {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.results__count {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 16px;
+}
+
+.results__load-more-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  padding: 14px 36px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.results__load-more-btn:hover:not(:disabled) {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.results__load-more-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
