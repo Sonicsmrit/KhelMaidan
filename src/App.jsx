@@ -3,6 +3,7 @@ import Home from './pages/home'
 import Search from './pages/search'
 import Venues from './pages/venues'
 import SignIn from './pages/signin'
+import VenueOwnerlogin from './pages/Venue_owner_login'
 // import Login from './pages/login'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/venues" element={<Venues />} />
+        <Route path="/venue-owner-login" element={<VenueOwnerlogin />} />
         {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
     </BrowserRouter>

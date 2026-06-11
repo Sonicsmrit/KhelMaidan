@@ -5,7 +5,7 @@ function Footer() {
             <div className="footer-left">
                 <span className="footer-logo">KhelMaidan</span>
 
-                <p>&copy; 2024 KhelMaidan Nepal. All Rights Reserved.<br />
+                <p>&copy; 2030 KhelMaidan Nepal. All Rights Reserved.<br />
                 Kathmandu Support: +977-1-69696969</p>
 
             </div>

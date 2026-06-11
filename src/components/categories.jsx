@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 function Categories(){
     return(
         <section className="categories">
@@ -16,7 +18,7 @@ function Categories(){
                 <div className="Host_grid">
                     <h2>HOST YOUR VENUES</h2>
                     <p>Join Nepal's premier sports network and monetize your facility.</p>
-                    <button>LIST MY ARENA</button>
+                    <Link to="/venue-owner-login" className="btn">LIST MY ARENA</Link>
                 </div>
             </div>
 
