@@ -100,8 +100,8 @@ export default function VenueResults() {
 
 const sorted = [...venues];
 
-if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
 if (sortBy === "Price: Low to High") sorted.sort((a, b) => a.price - b.price);
+if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
 if (sortBy === "Rating") sorted.sort((a, b) => b.rating - a.rating);
 
 const visibleVenues = sorted.slice(0, visibleCount);
