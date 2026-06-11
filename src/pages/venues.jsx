@@ -1,12 +1,12 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/footer'
-import Construction from '../components/underconstruction'
+import Venuecontent from '../components/venuecontent'
 
 function Venues() {
     return(
         <div className="venues">
             <Navbar />
-            <Construction />
+            <venuecontent />
             <Footer />
         </div>
     )
