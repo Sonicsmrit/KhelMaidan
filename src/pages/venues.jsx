@@ -6,7 +6,7 @@ function Venues() {
     return(
         <div className="venues">
             <Navbar />
-            <venuecontent />
+            <venuecontent/>
             <Footer />
         </div>
     )
