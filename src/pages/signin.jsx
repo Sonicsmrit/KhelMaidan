@@ -3,7 +3,7 @@ import "../styles/login.css";
 
 function SignIn() {
   return (
-    <div className="auth-page">s
+    <div className="auth-page">
       <div className="auth-card">
 
         <div className="auth-brand">
