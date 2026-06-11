@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 
-export default function SignIn() {
+function SignIn() {
   return (
     <div className="auth-page">s
       <div className="auth-card">
@@ -34,3 +34,5 @@ export default function SignIn() {
     </div>
   );
 }
+
+export default SignIn;

@@ -16,7 +16,7 @@ function Navbar() {
 
             <div className="nav-right">
                 <NavLink to="/support">SUPPORT</NavLink>
-                <NavLink to="/login" className="signin-btn">Sign In</NavLink>
+                <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
             </div>
         </nav>
     )
