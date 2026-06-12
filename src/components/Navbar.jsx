@@ -6,17 +6,26 @@ function Navbar() {
 
     const navigate = useNavigate()
     const [isOwner, setIsOwner] = useState(false)
+    const [isUser, setIsUser] = useState(false)
 
     const handleLogout = () => {
         localStorage.removeItem('loggedInOwner')
+        localStorage.removeItem('loggedIn')
+        setIsOwner(false)
+        setIsUser(false)
         navigate('/')
     }
     
     useEffect(() => {
-        const loggedIn = localStorage.getItem('loggedInOwner')
+        const loggedInOwner = localStorage.getItem('loggedInOwner')
+        const LoggedIn = localStorage.getItem('loggedIn')
 
-        if (loggedIn) {
+        if (loggedInOwner) {
             setIsOwner(true)
+        }
+
+        if(LoggedIn){
+            setIsUser(true)
         }
 
     }, [])
@@ -41,11 +50,11 @@ function Navbar() {
 
             <div className="nav-right">
                 <NavLink to="/support">SUPPORT</NavLink>
-                {!isOwner && (
+                {!isOwner && !isUser && (
                     <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
                 )}
                 {
-                    isOwner && (
+                    (isOwner || isUser) && (
                         <button className="logout-btn" onClick={handleLogout}>Logout</button>
                     )
                 }

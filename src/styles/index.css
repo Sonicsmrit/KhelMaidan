@@ -380,23 +380,22 @@ html{
     gap: 40px;
     flex-wrap: wrap;
 }
-.footer-links p {
-    color: #666;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-}
-
-.footer-links p:hover {
-    color: #39d353;
-}
 
 .footer-icons {
     display: flex;
     gap: 8px;
 }
+
+.footer a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #00ff41;
+}
+
 
 /* under construction sign */
 .construction{

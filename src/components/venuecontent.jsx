@@ -16,7 +16,7 @@ function VenueCard({ venue }) {
       <div className="venue-card__image-wrap">
         <img src={venue.image} alt={venue.name} className="venue-card__image" />
         <span className="venue-card__badge">{venue.type}</span>
-        <span className="venue-card__rating">★ {venue.rating}</span>
+        <span className="venue-card__rating">★ {venue.rating ?? 'New'}</span>
       </div>
       <div className="venue-card__body">
         <h3 className="venue-card__name">{venue.name}</h3>
@@ -25,7 +25,7 @@ function VenueCard({ venue }) {
         <div className="venue-card__footer">
           <div>
             <span className="venue-card__per-hour">PER HOUR</span>
-            <span className="venue-card__price">NPR {venue.price.toLocaleString()}</span>
+            <span className="venue-card__price">NPR {(venue.price || 0).toLocaleString()}</span>
           </div>
           <button className="venue-card__btn">VIEW SLOTS</button>
         </div>
@@ -37,7 +37,27 @@ function VenueCard({ venue }) {
 export default function VenueResults() {
   const [sortBy, setSortBy] = useState("Popularity");
 
-  const sorted = [...venues];
+  const ownerVenues = JSON.parse(localStorage.getItem('ownerData')|| '[]') 
+
+  .filter(o => o.Venuename) //only owners who have set up their venue
+
+  .map((o,i) =>({
+    id: `owner-${i}`,
+    name: o.Venuename,
+    location: `${o.District || ''}`,
+    type: o.PrimarySport || 'INDOOR',
+    rating: null,
+    price: parseInt(o.pricing) || 0,
+    image: o.image || null,
+
+  }) //reshape into the  venue cards format
+
+  )
+  const allVenues = [...venues, ...ownerVenues]
+
+
+  const sorted = [...allVenues];
+
   if (sortBy === "Price: Low to High") sorted.sort((a, b) => a.price - b.price);
   if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
   if (sortBy === "Rating") sorted.sort((a, b) => b.rating - a.rating);

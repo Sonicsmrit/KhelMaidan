@@ -1,6 +1,22 @@
 import BackgroundMotion from '../assets/baackgrounud_motion.jsx'
+import { useNavigate } from 'react-router-dom'
 
 function Hero() {
+    const navigate = useNavigate()
+
+    const handleFind = () => {
+        const isOwner = localStorage.getItem('loggedInOwner')
+        const isUser = localStorage.getItem('loggedIn')
+
+        if (!isOwner && !isUser) {
+
+            navigate('/signin')
+            return
+
+        }
+
+        navigate('/search')
+    }
     return (
         <section className="hero">
             <BackgroundMotion />
@@ -23,9 +39,14 @@ function Hero() {
                         <option value="Badminton">Badminton</option>
                         <option value="Volleyball">Volleyball</option>
                     </select>
-                    <input type="text" placeholder="City Name" />
+                    <select>
+                        <option value="">Select City</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Bhaktapur">Bhaktapur</option>
+                        <option value="Lalitpur">Lalitpur</option>
+                    </select>
                     <input type="number" placeholder="MAX PRICE (NPR)" />
-                    <button>Find Venues</button>
+                    <button onClick={handleFind}>Find Venues</button>
                 </div>
             </div>
             
