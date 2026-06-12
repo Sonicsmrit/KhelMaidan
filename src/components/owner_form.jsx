@@ -82,8 +82,6 @@ function OwnerForm(){
         }
         
 
-        // locaStorage to save data
-
         const existing = JSON.parse(localStorage.getItem('ownerData')) || [] // Get existing data or initialize as empty array
 
         const duplicate = existing.find(item => item.email === formData.email) // Check for duplicate email
@@ -94,6 +92,8 @@ function OwnerForm(){
         }
 
         setError('')
+
+        // localStorage to save data
 
         const updatedData = [...existing, formData] // Add new form data to existing data
 

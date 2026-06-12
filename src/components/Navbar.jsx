@@ -1,16 +1,24 @@
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 
 function Navbar() {
     const location = useLocation()
 
+    const navigate = useNavigate()
     const [isOwner, setIsOwner] = useState(false)
+
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInOwner')
+        navigate('/')
+    }
+    
     useEffect(() => {
         const loggedIn = localStorage.getItem('loggedInOwner')
 
         if (loggedIn) {
             setIsOwner(true)
         }
+
     }, [])
 
     return(
@@ -23,20 +31,24 @@ function Navbar() {
                 <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink> 
                 <NavLink to="/search" className={({isActive}) => isActive ? 'active':''}>Search</NavLink>
                 <NavLink to="/venues" className={({isActive}) => isActive ? 'active':''}>Venues</NavLink>
+                {isOwner && (
+                    <NavLink to="/owner-dashboard" className={({isActive}) => isActive ? 'active':''}>Dashboard</NavLink>
+
+                )
+                }
             
             </div>
 
             <div className="nav-right">
                 <NavLink to="/support">SUPPORT</NavLink>
-
-                {isOwner && (
-                    <NavLink to="/owner-dashboard" className="signin-btn">Dashboard</NavLink>
-                )
-                }
-
                 {!isOwner && (
                     <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
                 )}
+                {
+                    isOwner && (
+                        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                    )
+                }
             </div>
         </nav>
     )

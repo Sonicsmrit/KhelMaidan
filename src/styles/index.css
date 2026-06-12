@@ -80,6 +80,21 @@ html{
     font-family: 'Sora Variable', sans-serif;
 }
 
+.logout-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #aaa;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
 
 /* Hero text */
 
