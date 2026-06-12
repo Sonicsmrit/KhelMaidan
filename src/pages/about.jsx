@@ -26,7 +26,7 @@ function AboutUs(){
                     <br/><br/> 
 
 
-                    Also Easter egg
+                    Also Furina is a part of the team
 
                 </p>
 
