@@ -1,6 +1,18 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
+import {useState, useEffect} from 'react'
 
 function Navbar() {
+    const location = useLocation()
+
+    const [isOwner, setIsOwner] = useState(false)
+    useEffect(() => {
+        const loggedIn = localStorage.getItem('loggedInOwner')
+
+        if (loggedIn) {
+            setIsOwner(true)
+        }
+    }, [])
+
     return(
         <nav className="navbar">
 
@@ -16,7 +28,15 @@ function Navbar() {
 
             <div className="nav-right">
                 <NavLink to="/support">SUPPORT</NavLink>
-                <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
+
+                {isOwner && (
+                    <NavLink to="/owner-dashboard" className="signin-btn">Dashboard</NavLink>
+                )
+                }
+
+                {!isOwner && (
+                    <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
+                )}
             </div>
         </nav>
     )
