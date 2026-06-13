@@ -1,0 +1,112 @@
+/* ── Overall page ─────────────────────────────────────────── */
+.support-page {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ── Hero section ─────────────────────────────────────────── */
+.support-hero {
+  padding: 80px 60px 40px 60px;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.support-eyebrow {
+  color: #4caf50;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 10px 0;
+}
+
+.support-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+}
+
+.support-subtitle {
+  color: #aaaaaa;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* ── Two column layout ────────────────────────────────────── */
+.support-content {
+  display: flex;
+  gap: 60px;
+  padding: 60px;
+}
+
+@media (max-width: 800px) {
+  .support-content {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .support-hero {
+    padding: 60px 20px 30px 20px;
+  }
+}
+
+/* ── Section title ────────────────────────────────────────── */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #4caf50;
+  margin: 0 0 24px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── FAQ section ──────────────────────────────────────────── */
+.support-faq {
+  flex: 1;
+}
+
+.faq-item {
+  border-bottom: 1px solid #1a1a1a;
+  padding: 20px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #ffffff;
+}
+
+.faq-answer {
+  font-size: 14px;
+  color: #aaaaaa;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Contact section ──────────────────────────────────────── */
+.support-contact {
+  width: 360px;
+}
+
+@media (max-width: 800px) {
+  .support-contact {
+    width: 100%;
+  }
+}
+
+.contact-info {
+  margin-bottom: 24px;
+}
+
+.contact-info p {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin: 0 0 8px 0;
+}
+

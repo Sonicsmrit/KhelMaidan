@@ -4,6 +4,8 @@ import Search from './pages/search'
 import Venues from './pages/venues'
 import SignIn from './pages/signin'
 import VenueOwnerlogin from './pages/Venue_owner_login'
+import Support from "./pages/support";
+
 // import Login from './pages/login'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/venues" element={<Venues />} />
         <Route path="/venue-owner-login" element={<VenueOwnerlogin />} />
         {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/support" element={<Support />} />
+
       </Routes>
     </BrowserRouter>
   )
