@@ -42,6 +42,7 @@ function Dashboard() {
         localStorage.setItem('loggedInOwner', JSON.stringify(updated))
 
         const allOwners = JSON.parse(localStorage.getItem('ownerData')) || []
+        
         const updatedAll = allOwners.map(o => o.email === owner.email ? updated : o)
         localStorage.setItem('ownerData', JSON.stringify(updatedAll))
 
