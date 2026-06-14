@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "../styles/VenueResults.css";
 
-const venues = [
-  { id: 1, name: "Kickoff Arena Koteshwor", location: "Koteshwor, Kathmandu", type: "INDOOR", rating: 4.8, price: 1200, image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&q=80" },
-  { id: 2, name: "Mulpani Sports Complex", location: "Mulpani, Kathmandu", type: "OUTDOOR", rating: 4.6, price: 2500, image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80" },
-  { id: 3, name: "Lalitpur Hoops Center", location: "Jhamsikhel, Lalitpur", type: "INDOOR", rating: 4.9, price: 1800, image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" },
-  { id: 4, name: "Skyline Futsal Hub", location: "Baneshwor, Kathmandu", type: "ROOFTOP", rating: 4.5, price: 1500, image: "https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=600&q=80" },
-  { id: 5, name: "Ace Badminton Academy", location: "Sanepa, Lalitpur", type: "INDOOR", rating: 4.7, price: 800, image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80" },
-  { id: 6, name: "Bhaktapur Youth Grounds", location: "Suryabinayak, Bhaktapur", type: "OUTDOOR", rating: 4.4, price: 1000, image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" },
+const staticVenues = [
+  { id: 1, name: "Kickoff Arena Koteshwor", location: "Koteshwor, Kathmandu", type: "INDOOR", sport: "Football", city: "Kathmandu", rating: 4.8, price: 1200, image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&q=80" },
+  { id: 2, name: "Mulpani Sports Complex", location: "Mulpani, Kathmandu", type: "OUTDOOR", sport: "Cricket", city: "Kathmandu", rating: 4.6, price: 2500, image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80" },
+  { id: 3, name: "Lalitpur Hoops Center", location: "Jhamsikhel, Lalitpur", type: "INDOOR", sport: "Basketball", city: "Lalitpur", rating: 4.9, price: 1800, image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" },
+  { id: 4, name: "Skyline Futsal Hub", location: "Baneshwor, Kathmandu", type: "ROOFTOP", sport: "Football", city: "Kathmandu", rating: 4.5, price: 1500, image: "https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=600&q=80" },
+  { id: 5, name: "Ace Badminton Academy", location: "Sanepa, Lalitpur", type: "INDOOR", sport: "Badminton", city: "Lalitpur", rating: 4.7, price: 800, image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80" },
+  { id: 6, name: "Bhaktapur Youth Grounds", location: "Suryabinayak, Bhaktapur", type: "OUTDOOR", sport: "Football", city: "Bhaktapur", rating: 4.4, price: 1000, image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" },
 ];
 
 function VenueCard({ venue }) {
@@ -34,14 +34,12 @@ function VenueCard({ venue }) {
   );
 }
 
-export default function VenueResults() {
+export default function VenueResults({ venues = staticVenues, selectedSport, kathmandu, lalitpur, bhaktapur, price, courtType }) {
   const [sortBy, setSortBy] = useState("Popularity");
 
-  const ownerVenues = JSON.parse(localStorage.getItem('ownerData')|| '[]') 
-
-  .filter(o => o.Venuename) //only owners who have set up their venue
-
-  .map((o,i) =>({
+const ownerVenues = JSON.parse(localStorage.getItem('ownerData') || '[]')
+  .filter(o => o.Venuename)
+  .map((o, i) => ({
     id: `owner-${i}`,
     name: o.Venuename,
     location: `${o.District || ''}`,
@@ -49,15 +47,28 @@ export default function VenueResults() {
     rating: null,
     price: parseInt(o.pricing) || 0,
     image: o.image || null,
+  }));
 
-  }) //reshape into the  venue cards format
+const allVenues = [...venues, ...ownerVenues];
 
-  )
-  const allVenues = [...venues, ...ownerVenues]
+let filtered = allVenues.filter((venue) => {
+  if (selectedSport && venue.sport !== selectedSport) return false;
 
+  const cityAllowed =
+    (kathmandu && venue.city === "Kathmandu") ||
+    (lalitpur  && venue.city === "Lalitpur")  ||
+    (bhaktapur && venue.city === "Bhaktapur");
+  if (!cityAllowed) return false;
 
-  const sorted = [...allVenues];
+  if (price && venue.price > price) return false;
 
+  if (courtType === "Indoor Only"  && venue.type !== "INDOOR")  return false;
+  if (courtType === "Outdoor Only" && venue.type !== "OUTDOOR") return false;
+
+  return true;
+});
+
+const sorted = [...filtered];
   if (sortBy === "Price: Low to High") sorted.sort((a, b) => a.price - b.price);
   if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
   if (sortBy === "Rating") sorted.sort((a, b) => b.rating - a.rating);
@@ -81,9 +92,11 @@ export default function VenueResults() {
       </div>
 
       <div className="results__grid">
-        {sorted.map((venue) => (
-          <VenueCard key={venue.id} venue={venue} />
-        ))}
+        {sorted.length === 0 ? (
+          <p style={{ color: "#aaa" }}>No venues match your filters.</p>
+        ) : (
+          sorted.map((venue) => <VenueCard key={venue.id} venue={venue} />)
+        )}
       </div>
     </main>
   );

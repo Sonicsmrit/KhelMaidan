@@ -4,6 +4,7 @@ import Search from './pages/search'
 import Venues from './pages/venues'
 import SignIn from './pages/signin'
 import VenueOwnerlogin from './pages/Venue_owner_login'
+import Support from "./pages/support"
 import OwnerDashboard from './pages/owner_dashboard'
 import UserSignup from './pages/Signup'
 import AboutUs from './pages/about'
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/venues" element={<Venues />} />
         <Route path="/venue-owner-login" element={<VenueOwnerlogin />} />
+        <Route path="/support" element={<Support />} />
         <Route path="/owner-dashboard" element={<OwnerDashboard />} />
         <Route path="/signup" element={<UserSignup />} />
         <Route path="/AboutUs" element={<AboutUs />} />
