@@ -80,6 +80,21 @@ html{
     font-family: 'Sora Variable', sans-serif;
 }
 
+.logout-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #aaa;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
 
 /* Hero text */
 
@@ -365,23 +380,22 @@ html{
     gap: 40px;
     flex-wrap: wrap;
 }
-.footer-links p {
-    color: #666;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-}
-
-.footer-links p:hover {
-    color: #39d353;
-}
 
 .footer-icons {
     display: flex;
     gap: 8px;
 }
+
+.footer a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #00ff41;
+}
+
 
 /* under construction sign */
 .construction{

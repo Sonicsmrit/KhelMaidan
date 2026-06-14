@@ -4,9 +4,12 @@ import Search from './pages/search'
 import Venues from './pages/venues'
 import SignIn from './pages/signin'
 import VenueOwnerlogin from './pages/Venue_owner_login'
-import Support from "./pages/support";
-
-// import Login from './pages/login'
+import Support from "./pages/support"
+import OwnerDashboard from './pages/owner_dashboard'
+import UserSignup from './pages/Signup'
+import AboutUs from './pages/about'
+import Terms from './pages/terms'
+import Privacy from './pages/privacy'
 
 function App() {
   return (
@@ -17,9 +20,12 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/venues" element={<Venues />} />
         <Route path="/venue-owner-login" element={<VenueOwnerlogin />} />
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/support" element={<Support />} />
-
+        <Route path="/owner-dashboard" element={<OwnerDashboard />} />
+        <Route path="/signup" element={<UserSignup />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/terms" element={<Terms/>} />
+        <Route path="/privacy" element={<Privacy/>} />
       </Routes>
     </BrowserRouter>
   )

@@ -1,0 +1,25 @@
+.page {
+    background-color: #0a0a0a;
+    color: #86efac;
+    padding: 80px 120px;
+    min-height: 100vh;
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.page p {
+    color: #86efac;
+    max-width: 720px;
+}
+
+.page img {
+    display: block;
+    margin: 40px auto;
+    width: 400px;
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.page h1, .page h2 {
+    color: #fff;
+}

@@ -1,6 +1,9 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function OwnerForm(){
+
+    const navigate = useNavigate()
 
     const[formData, setFormData] = useState({
         Venuename: '',
@@ -77,9 +80,30 @@ function OwnerForm(){
             setError('Passwords do not match')
             return
         }
+        
+
+        const existing = JSON.parse(localStorage.getItem('ownerData')) || [] // Get existing data or initialize as empty array
+
+        const duplicate = existing.find(item => item.email === formData.email) // Check for duplicate email
+
+        if(duplicate){
+            setError('An entry with this email already exists')
+            return
+        }
+
         setError('')
 
-        console.log(formData)
+        // localStorage to save data
+
+        const updatedData = [...existing, formData] // Add new form data to existing data
+
+        localStorage.setItem('ownerData', JSON.stringify(updatedData)) // Save all owners
+        localStorage.setItem('loggedInOwner', JSON.stringify(formData)) // Save updated data back to localStorage
+
+        console.log("Saved", updatedData)
+
+        navigate('/owner-dashboard') // Redirect to dashboard page after saving
+
     }
 
     return (

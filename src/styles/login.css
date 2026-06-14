@@ -144,3 +144,9 @@
     padding: 36px 24px 28px;
   }
 }
+
+.auth-error {
+  color: rgb(255, 0, 0);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
