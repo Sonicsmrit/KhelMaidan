@@ -45,6 +45,9 @@ const ownerVenues = JSON.parse(localStorage.getItem('ownerData') || '[]')
     location: `${o.District || ''}`,
     type: o.PrimarySport || 'INDOOR',
     city: o.District || '',
+    sport: o.PrimarySport
+      ? o.PrimarySport.charAt(0).toUpperCase() + o.PrimarySport.slice(1)
+      : '',
     rating: null,
     price: parseInt(o.pricing) || 0,
     image: o.image || null,
