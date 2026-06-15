@@ -1,23 +1,26 @@
-import { useState } from "react";
+import "../styles/search.css";
 
-function Sidebar() {
-  const [selectedSport, setSelectedSport] = useState(null);
-  const [locations, setLocations] = useState([]);
-  const [price, setPrice] = useState(3000);
-  const [courtType, setCourtType] = useState("All Types");
+function Sidebar({ selectedSport, setSelectedSport, kathmandu, setKathmandu, lalitpur, setLalitpur, bhaktapur, setBhaktapur, price, setPrice, courtType, setCourtType }) {
 
-  const sports = ["Football", "Cricket", "Basketball","Tennis", "Badminton", "Volleyball"];
+  function clearFilters() {
+    setSelectedSport(null);
+    setKathmandu(false);
+    setLalitpur(false);
+    setBhaktapur(false);
+    setPrice(5000);
+    setCourtType("All Types");
+  }
 
   return (
     <aside>
       <div className="filter-section">
         <h4>Sport</h4>
         <div className="sport-tabs">
-          {sports.map((sport) => (
+          {["Football", "Cricket", "Basketball", "Tennis", "Badminton", "Volleyball"].map((sport) => (
             <button
               key={sport}
-              className={`sport-tab ${selectedSport === sport ? "active" : ""}`}
-              onClick={() => setSelectedSport(sport)}
+              className={"sport-tab " + (selectedSport === sport ? "active" : "")}
+              onClick={() => setSelectedSport(selectedSport === sport ? null : sport)}
             >
               {sport}
             </button>
@@ -26,36 +29,30 @@ function Sidebar() {
       </div>
 
       <div className="filter-section">
-  <h4>Location</h4>
-  <div className="checkbox-group">
-    {["Kathmandu", "Lalitpur", "Bhaktapur"].map((loc) => (
-      <label key={loc} className="checkbox-item">
-        <input
-          type="checkbox"
-          checked={locations.includes(loc)}
-          onChange={() =>
-            setLocations((prev) =>
-              prev.includes(loc) ? prev.filter((l) => l !== loc) : [...prev, loc]
-            )
-          }
-        />
-        <span className="checkbox-box"></span>
-        {loc}
-      </label>
-    ))}
-  </div>
-</div>
+        <h4>Location</h4>
+        <div className="checkbox-group">
+          <label className="checkbox-item">
+            <input type="checkbox" checked={kathmandu} onChange={() => setKathmandu(!kathmandu)} />
+            <span className="checkbox-box"></span>
+            Kathmandu
+          </label>
+          <label className="checkbox-item">
+            <input type="checkbox" checked={lalitpur} onChange={() => setLalitpur(!lalitpur)} />
+            <span className="checkbox-box"></span>
+            Lalitpur
+          </label>
+          <label className="checkbox-item">
+            <input type="checkbox" checked={bhaktapur} onChange={() => setBhaktapur(!bhaktapur)} />
+            <span className="checkbox-box"></span>
+            Bhaktapur
+          </label>
+        </div>
+      </div>
 
       <div className="filter-section">
         <h4>Price Range (NPR)</h4>
         <div className="price-range">
-          <input
-            type="range"
-            min="0"
-            max="5000"
-            value={price}
-            onChange={(e) => setPrice(Number(e.target.value))}
-          />
+          <input type="range" min="0" max="5000" value={price} onChange={(e) => setPrice(Number(e.target.value))} />
           <div className="range-labels">
             <span>0</span>
             <span>{price === 5000 ? "5000+" : price}</span>
@@ -68,12 +65,7 @@ function Sidebar() {
         <div className="radio-group">
           {["Indoor Only", "Outdoor Only", "All Types"].map((type) => (
             <label key={type} className="radio-item">
-              <input
-                type="radio"
-                name="court"
-                checked={courtType === type}
-                onChange={() => setCourtType(type)}
-              />
+              <input type="radio" name="court" checked={courtType === type} onChange={() => setCourtType(type)} />
               <span className="radio-dot"></span>
               {type}
             </label>
@@ -81,16 +73,7 @@ function Sidebar() {
         </div>
       </div>
 
-      
-
-      <button className="btn-clear" onClick={() => {
-        setSelectedSport(null);
-        setLocations([]);
-        setPrice(3000);
-        setCourtType("All Types");
-      }}>
-        Clear All Filters
-      </button>
+      <button className="btn-clear" onClick={clearFilters}>Clear All Filters</button>
     </aside>
   );
 }

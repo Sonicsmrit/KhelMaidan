@@ -1,6 +1,35 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import {useState, useEffect} from 'react'
 
 function Navbar() {
+    const location = useLocation()
+
+    const navigate = useNavigate()
+    const [isOwner, setIsOwner] = useState(false)
+    const [isUser, setIsUser] = useState(false)
+
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInOwner')
+        localStorage.removeItem('loggedIn')
+        setIsOwner(false)
+        setIsUser(false)
+        navigate('/')
+    }
+    
+    useEffect(() => {
+        const loggedInOwner = localStorage.getItem('loggedInOwner')
+        const LoggedIn = localStorage.getItem('loggedIn')
+
+        if (loggedInOwner) {
+            setIsOwner(true)
+        }
+
+        if(LoggedIn){
+            setIsUser(true)
+        }
+
+    }, [])
+
     return(
         <nav className="navbar">
 
@@ -11,12 +40,24 @@ function Navbar() {
                 <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink> 
                 <NavLink to="/search" className={({isActive}) => isActive ? 'active':''}>Search</NavLink>
                 <NavLink to="/venues" className={({isActive}) => isActive ? 'active':''}>Venues</NavLink>
+                {isOwner && (
+                    <NavLink to="/owner-dashboard" className={({isActive}) => isActive ? 'active':''}>Dashboard</NavLink>
+
+                )
+                }
             
             </div>
 
             <div className="nav-right">
                 <NavLink to="/support">SUPPORT</NavLink>
-                <NavLink to="/login" className="signin-btn">Sign In</NavLink>
+                {!isOwner && !isUser && (
+                    <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
+                )}
+                {
+                    (isOwner || isUser) && (
+                        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+                    )
+                }
             </div>
         </nav>
     )

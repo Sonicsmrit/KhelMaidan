@@ -80,6 +80,21 @@ html{
     font-family: 'Sora Variable', sans-serif;
 }
 
+.logout-btn {
+    background: transparent;
+    border: 1px solid #444;
+    color: #aaa;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-btn:hover {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
 
 /* Hero text */
 
@@ -117,7 +132,7 @@ html{
     
 }
 .hero h1 {
-    font-family: 'Anybody Variable', sans-serif;;
+    font-family: 'Anybody Variable', sans-serif;
     font-size: 64px;
     font-weight: 900;
     margin-bottom: 20px;
@@ -206,6 +221,29 @@ html{
     grid-template-columns: 2fr 1fr;
     gap: 16px;
     align-items: stretch;
+}
+
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: transparent;
+    color: #00ff11;
+    border-radius: 6px;
+    text-decoration: none; 
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 0 8px #00ff41, inset 0 0 8px rgb(0, 255, 65, 0.1);
+
+    transition: all 0.3s ease;
+
+
+}
+
+.btn:hover{
+    
+    box-shadow: 0 0 16px #00ff41, inset 0 0 12px rgba(0, 255, 65, 0.2);
 }
 
 .category-grid {
@@ -342,23 +380,22 @@ html{
     gap: 40px;
     flex-wrap: wrap;
 }
-.footer-links p {
-    color: #666;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    cursor: pointer;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-}
-
-.footer-links p:hover {
-    color: #39d353;
-}
 
 .footer-icons {
     display: flex;
     gap: 8px;
 }
+
+.footer a {
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer a:hover {
+    color: #00ff41;
+}
+
 
 /* under construction sign */
 .construction{
