@@ -30,6 +30,7 @@ function Supportcontent() {
           <div className="contact-info">
             <p>📧 support@khelmaidan.com</p>
             <p>📞 +977 9812345678</p>
+            <p>📞 +977 9834567895</p>
           </div>
         </div>
 
