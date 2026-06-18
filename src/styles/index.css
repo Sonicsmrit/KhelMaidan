@@ -208,6 +208,10 @@ html{
     margin-bottom: 1px;
 }
 
+a{
+    text-decoration: none;
+}
+
 .categories h2 {
     font-family: 'Anybody Variable', sans-serif;
     font-size: 40px;
