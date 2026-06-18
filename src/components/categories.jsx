@@ -9,10 +9,11 @@ function Categories(){
             <div className="category-layout">
             
                 <div className="category-grid">
-                    <div className="category-card football">Football</div>
-                    <div className="category-card basketball">Basketball</div>
-                    <div className="category-card badminton">Badminton</div>
-                    <div className="category-card cricket">Cricket</div>
+
+                    <Link to="/venue-owner-login"><div className="category-card football">Football</div></Link>
+                    <Link to="/venue-owner-login"><div className="category-card basketball">Basketball</div></Link>
+                    <Link to="/venue-owner-login"><div className="category-card badminton">Badminton</div></Link>
+                    <Link to="/venue-owner-login"><div className="category-card cricket">Cricket</div></Link>
 
                     </div>
                 <div className="Host_grid">
