@@ -37,6 +37,9 @@ function VenueCard({ venue }) {
 export default function VenueResults({ venues = staticVenues, selectedSport, kathmandu, lalitpur, bhaktapur, price, courtType }) {
   const [sortBy, setSortBy] = useState("Popularity");
 
+
+
+//loaded owner venue details
 const ownerVenues = JSON.parse(localStorage.getItem('ownerData') || '[]')
   .filter(o => o.Venuename)
   .map((o, i) => ({
