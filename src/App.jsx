@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
 import Search from './pages/search'
+import BookingPage from './pages/booking_page'
 import Venues from './pages/venues'
 import SignIn from './pages/signin'
 import VenueOwnerlogin from './pages/Venue_owner_login'
@@ -26,6 +27,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/terms" element={<Terms/>} />
         <Route path="/privacy" element={<Privacy/>} />
+        <Route path="/booking" element={<BookingPage />} />
       </Routes>
     </BrowserRouter>
   )
