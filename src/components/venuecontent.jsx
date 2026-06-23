@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/VenueResults.css";
 
 const staticVenues = [
@@ -11,6 +12,8 @@ const staticVenues = [
 ];
 
 function VenueCard({ venue }) {
+  const navigate = useNavigate();
+
   return (
     <div className="venue-card">
       <div className="venue-card__image-wrap">
@@ -27,7 +30,12 @@ function VenueCard({ venue }) {
             <span className="venue-card__per-hour">PER HOUR</span>
             <span className="venue-card__price">NPR {(venue.price || 0).toLocaleString()}</span>
           </div>
-          <button className="venue-card__btn">VIEW SLOTS</button>
+          <button
+            className="venue-card__btn"
+            onClick={() => navigate("/booking", { state: { venue } })}
+          >
+            VIEW SLOTS
+          </button>
         </div>
       </div>
     </div>
@@ -37,45 +45,38 @@ function VenueCard({ venue }) {
 export default function VenueResults({ venues = staticVenues, selectedSport, kathmandu, lalitpur, bhaktapur, price, courtType }) {
   const [sortBy, setSortBy] = useState("Popularity");
 
+  const ownerVenues = JSON.parse(localStorage.getItem('ownerData') || '[]')
+    .filter(o => o.Venuename)
+    .map((o, i) => ({
+      id: `owner-${i}`,
+      name: o.Venuename,
+      location: `${o.District || ''}`,
+      type: o.PrimarySport || 'INDOOR',
+      city: o.District || '',
+      sport: o.PrimarySport
+        ? o.PrimarySport.charAt(0).toUpperCase() + o.PrimarySport.slice(1)
+        : '',
+      rating: null,
+      price: parseInt(o.pricing) || 0,
+      image: o.image || null,
+    }));
 
+  const allVenues = [...venues, ...ownerVenues];
 
-//loaded owner venue details
-const ownerVenues = JSON.parse(localStorage.getItem('ownerData') || '[]')
-  .filter(o => o.Venuename)
-  .map((o, i) => ({
-    id: `owner-${i}`,
-    name: o.Venuename,
-    location: `${o.District || ''}`,
-    type: o.PrimarySport || 'INDOOR',
-    city: o.District || '',
-    sport: o.PrimarySport
-      ? o.PrimarySport.charAt(0).toUpperCase() + o.PrimarySport.slice(1)
-      : '',
-    rating: null,
-    price: parseInt(o.pricing) || 0,
-    image: o.image || null,
-  }));
+  let filtered = allVenues.filter((venue) => {
+    if (selectedSport && venue.sport !== selectedSport) return false;
+    const cityAllowed =
+      (kathmandu && venue.city === "Kathmandu") ||
+      (lalitpur  && venue.city === "Lalitpur")  ||
+      (bhaktapur && venue.city === "Bhaktapur");
+    if (!cityAllowed) return false;
+    if (price && venue.price > price) return false;
+    if (courtType === "Indoor Only"  && venue.type !== "INDOOR")  return false;
+    if (courtType === "Outdoor Only" && venue.type !== "OUTDOOR") return false;
+    return true;
+  });
 
-const allVenues = [...venues, ...ownerVenues];
-
-let filtered = allVenues.filter((venue) => {
-  if (selectedSport && venue.sport !== selectedSport) return false;
-
-  const cityAllowed =
-    (kathmandu && venue.city === "Kathmandu") ||
-    (lalitpur  && venue.city === "Lalitpur")  ||
-    (bhaktapur && venue.city === "Bhaktapur");
-  if (!cityAllowed) return false;
-
-  if (price && venue.price > price) return false;
-
-  if (courtType === "Indoor Only"  && venue.type !== "INDOOR")  return false;
-  if (courtType === "Outdoor Only" && venue.type !== "OUTDOOR") return false;
-
-  return true;
-});
-
-const sorted = [...filtered];
+  const sorted = [...filtered];
   if (sortBy === "Price: Low to High") sorted.sort((a, b) => a.price - b.price);
   if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
   if (sortBy === "Rating") sorted.sort((a, b) => b.rating - a.rating);
