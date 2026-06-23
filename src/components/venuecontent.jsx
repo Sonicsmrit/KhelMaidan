@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/VenueResults.css";
 
@@ -11,8 +11,44 @@ const staticVenues = [
   { id: 6, name: "Bhaktapur Youth Grounds", location: "Suryabinayak, Bhaktapur", type: "OUTDOOR", sport: "Football", city: "Bhaktapur", rating: 4.4, price: 1000, image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" },
 ];
 
+
+
+const check_signin = () =>{
+
+  if(!isOwner || !isUser){
+    return navigate("/signin", { state: { venue } })
+  }
+  
+  
+}
+
 function VenueCard({ venue }) {
   const navigate = useNavigate();
+  const [isOwner, setIsOwner] = useState(false)
+  const [isUser, setIsUser] = useState(false)
+
+  useEffect(() => {
+    const loggedInOwner = localStorage.getItem('loggedInOwner')
+    const LoggedIn = localStorage.getItem('loggedIn')
+
+    if (loggedInOwner) {
+        setIsOwner(true)
+    }
+
+    if(LoggedIn){
+        setIsUser(true)
+    }
+
+  }, [])
+
+  const check_signin = () => {
+    if (!isOwner && !isUser) {
+      navigate("/signin");
+      return;
+    }
+    navigate(`/booking`, { state: { venue } });
+  };
+
 
   return (
     <div className="venue-card">
@@ -32,7 +68,7 @@ function VenueCard({ venue }) {
           </div>
           <button
             className="venue-card__btn"
-            onClick={() => navigate("/booking", { state: { venue } })}
+            onClick={check_signin}
           >
             VIEW SLOTS
           </button>
