@@ -22,7 +22,7 @@ function Hero() {
             <BackgroundMotion />
 
             <div className="hero-content">
-                <span className="badge">ARENA ACCESS: ACTIVE</span>
+                <span className="badge">BOOK THE BEST ARENAS</span>
                 <h1>Own the <span className="green">Ground.</span></h1>
                 <p>
                     The elite platform for athletes in Nepal. Book premium futsal courts, basketball
