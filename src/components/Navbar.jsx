@@ -38,8 +38,7 @@ function Navbar() {
             <div className="nav-links">
                 {/* react gives isActive automatically and becomes True when the link is active */}
                 <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink> 
-                <NavLink to="/search" className={({isActive}) => isActive ? 'active':''}>Search</NavLink>
-                <NavLink to="/venues" className={({isActive}) => isActive ? 'active':''}>Venues</NavLink>
+                <NavLink to="/search" className={({isActive}) => isActive ? 'active':''}>Search Venues</NavLink>
                 {isOwner && (
                     <NavLink to="/owner-dashboard" className={({isActive}) => isActive ? 'active':''}>Dashboard</NavLink>
 
