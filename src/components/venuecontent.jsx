@@ -2,12 +2,12 @@ import { useState } from "react";
 import "../styles/VenueResults.css";
 
 const staticVenues = [
-  { id: 1, name: "Kickoff Arena Koteshwor", location: "Koteshwor, Kathmandu", type: "INDOOR", sport: "Football", city: "Kathmandu", rating: 4.8, price: 1200, image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&q=80" },
-  { id: 2, name: "Mulpani Sports Complex", location: "Mulpani, Kathmandu", type: "OUTDOOR", sport: "Cricket", city: "Kathmandu", rating: 4.6, price: 2500, image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80" },
-  { id: 3, name: "Lalitpur Hoops Center", location: "Jhamsikhel, Lalitpur", type: "INDOOR", sport: "Basketball", city: "Lalitpur", rating: 4.9, price: 1800, image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" },
-  { id: 4, name: "Skyline Futsal Hub", location: "Baneshwor, Kathmandu", type: "ROOFTOP", sport: "Football", city: "Kathmandu", rating: 4.5, price: 1500, image: "https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=600&q=80" },
-  { id: 5, name: "Ace Badminton Academy", location: "Sanepa, Lalitpur", type: "INDOOR", sport: "Badminton", city: "Lalitpur", rating: 4.7, price: 800, image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80" },
-  { id: 6, name: "Bhaktapur Youth Grounds", location: "Suryabinayak, Bhaktapur", type: "OUTDOOR", sport: "Football", city: "Bhaktapur", rating: 4.4, price: 1000, image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" },
+  { id: 1, name: "Kickoff Arena Koteshwor", location: "Koteshwor, Kathmandu", type: "INDOOR", sport: "Football", city: "Kathmandu", price: 1200, image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&q=80" },
+  { id: 2, name: "Mulpani Sports Complex", location: "Mulpani, Kathmandu", type: "OUTDOOR", sport: "Cricket", city: "Kathmandu", price: 2500, image: "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=600&q=80" },
+  { id: 3, name: "Lalitpur Hoops Center", location: "Jhamsikhel, Lalitpur", type: "INDOOR", sport: "Basketball", city: "Lalitpur", price: 1800, image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=600&q=80" },
+  { id: 4, name: "Skyline Futsal Hub", location: "Baneshwor, Kathmandu", type: "ROOFTOP", sport: "Football", city: "Kathmandu", price: 1500, image: "https://images.unsplash.com/photo-1556056504-5c7696c4c28d?w=600&q=80" },
+  { id: 5, name: "Ace Badminton Academy", location: "Sanepa, Lalitpur", type: "INDOOR", sport: "Badminton", city: "Lalitpur", price: 800, image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=600&q=80" },
+  { id: 6, name: "Bhaktapur Youth Grounds", location: "Suryabinayak, Bhaktapur", type: "OUTDOOR", sport: "Football", city: "Bhaktapur", price: 1000, image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" },
 ];
 
 function VenueCard({ venue }) {
@@ -16,7 +16,7 @@ function VenueCard({ venue }) {
       <div className="venue-card__image-wrap">
         <img src={venue.image} alt={venue.name} className="venue-card__image" />
         <span className="venue-card__badge">{venue.type}</span>
-        <span className="venue-card__rating">★ {venue.rating ?? 'New'}</span>
+        
       </div>
       <div className="venue-card__body">
         <h3 className="venue-card__name">{venue.name}</h3>
@@ -25,7 +25,7 @@ function VenueCard({ venue }) {
         <div className="venue-card__footer">
           <div>
             <span className="venue-card__per-hour">PER HOUR</span>
-            <span className="venue-card__price">NPR {(venue.price || 0).toLocaleString()}</span>
+            <span className="venue-card__price"> NPR {(venue.price || 0).toLocaleString()}</span>
           </div>
           <button className="venue-card__btn">VIEW SLOTS</button>
         </div>
@@ -78,7 +78,6 @@ let filtered = allVenues.filter((venue) => {
 const sorted = [...filtered];
   if (sortBy === "Price: Low to High") sorted.sort((a, b) => a.price - b.price);
   if (sortBy === "Price: High to Low") sorted.sort((a, b) => b.price - a.price);
-  if (sortBy === "Rating") sorted.sort((a, b) => b.rating - a.rating);
 
   return (
     <main className="results">
@@ -93,7 +92,6 @@ const sorted = [...filtered];
             <option>Popularity</option>
             <option>Price: Low to High</option>
             <option>Price: High to Low</option>
-            <option>Rating</option>
           </select>
         </div>
       </div>
