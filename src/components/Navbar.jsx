@@ -33,7 +33,7 @@ function Navbar() {
     return(
         <nav className="navbar">
 
-            <h1 className="logo">KhelMaidan</h1>
+            <h1 className="logo"><NavLink to="/">KhelMaidan</NavLink></h1>
 
             <div className="nav-links">
                 {/* react gives isActive automatically and becomes True when the link is active */}
