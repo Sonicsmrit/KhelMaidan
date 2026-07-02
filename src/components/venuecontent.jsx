@@ -105,6 +105,7 @@ export default function VenueResults({ venues = staticVenues, selectedSport, kat
       (kathmandu && venue.city === "Kathmandu") ||
       (lalitpur  && venue.city === "Lalitpur")  ||
       (bhaktapur && venue.city === "Bhaktapur");
+      
     if (!cityAllowed) return false;
     if (price && venue.price > price) return false;
     if (courtType === "Indoor Only"  && venue.type !== "INDOOR")  return false;
