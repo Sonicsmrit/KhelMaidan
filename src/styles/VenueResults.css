@@ -37,6 +37,8 @@
   align-items: center;
   gap: 10px;
   white-space: nowrap;
+  position: fixed;
+  right: 20px; 
 }
 
 .results__sort-label {
