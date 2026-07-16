@@ -7,7 +7,7 @@ function Sidebar({ selectedSport, setSelectedSport, kathmandu, setKathmandu, lal
     setKathmandu(false);
     setLalitpur(false);
     setBhaktapur(false);
-    setPrice(5000);
+    setPrice(0);
     setCourtType("All Types");
   }
 
