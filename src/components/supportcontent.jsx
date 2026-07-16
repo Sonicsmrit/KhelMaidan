@@ -13,11 +13,6 @@ const faqs = [
 function Supportcontent() {
   return (
     <div className="support-page">
-
-      <div className="support-hero">
-        <p className="support-eyebrow">Help Center</p>
-      </div>
-
       <div className="support-content">
 
         <div className="support-faq">
