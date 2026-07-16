@@ -33,7 +33,6 @@ function Privacy(){
 
                 <p>Also Furina protects your data personally.</p>
 
-                <img src={Furina} alt="Thats the girl!" />
             </div>
             <Footer />
         </>

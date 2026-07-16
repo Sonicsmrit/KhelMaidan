@@ -36,7 +36,6 @@ function Terms(){
 
                 <p>Also Furina is our God</p>
 
-                <img src={Furina} alt="Thats the girl!"/>
             </div>
 
 

@@ -39,6 +39,8 @@ function Navbar() {
                 {/* react gives isActive automatically and becomes True when the link is active */}
                 <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink> 
                 <NavLink to="/search" className={({isActive}) => isActive ? 'active':''}>Search Venues</NavLink>
+                <NavLink to="/AboutUs" className={({isActive}) => isActive ? 'active':''}>About Us</NavLink>
+
                 {isOwner && (
                     <NavLink to="/owner-dashboard" className={({isActive}) => isActive ? 'active':''}>Dashboard</NavLink>
 
@@ -48,7 +50,10 @@ function Navbar() {
             </div>
 
             <div className="nav-right">
+            
                 <NavLink to="/support">SUPPORT</NavLink>
+                
+            
                 {!isOwner && !isUser && (
                     <NavLink to="/signin" className="signin-btn">Sign In</NavLink>
                 )}

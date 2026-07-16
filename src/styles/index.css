@@ -109,7 +109,7 @@ html{
     text-align: center;
     padding: 100px 20px 60px;
     scroll-snap-align: start;
-    min-height: 100vh;
+    min-height: 60vh;
     position: relative;
     overflow: hidden;
 }
@@ -414,3 +414,62 @@ a{
     height: 100vh;
 }
 
+/*Reviews Section  */
+.reviews-section {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+.reviews-title {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #16a34a;
+}
+
+/*Card*/
+.review-card {
+    background: #39d353;
+    border: 1px solid #e3e037;
+    border-radius: 12px;
+    padding: 2rem;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.review-stars {
+    font-size: 1.1rem;
+    color: #d7eb3c;
+    margin-bottom: 0.75rem;
+}
+
+.review-text {
+    font-size: 1rem;
+    font-style: italic;
+    color: #000000;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.review-name {
+    font-weight: 600;
+    color: #111827;
+}
+
+.review-role {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.15rem;
+}
+
+/* Swiper Pagination Dots */
+.reviews-section .swiper-pagination-bullet-active {
+    background: #ffffff;
+}
