@@ -473,3 +473,201 @@ a{
 .reviews-section .swiper-pagination-bullet-active {
     background: #ffffff;
 }
+
+/* responsive */
+
+@media (max-width: 968px) {
+ 
+    .navbar {
+        padding: 14px 24px;
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+ 
+    .nav-links {
+        gap: 16px;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex: 0 0 100%;
+    }
+ 
+    .hero {
+        padding: 90px 20px 50px;
+    }
+ 
+    .hero h1 {
+        font-size: 44px;
+    }
+ 
+    .hero p {
+        max-width: 90%;
+    }
+ 
+    .categories {
+        padding: 60px 24px 0px 24px;
+    }
+ 
+    .categories h2 {
+        font-size: 30px;
+    }
+ 
+    .category-layout {
+        grid-template-columns: 1fr;
+    }
+ 
+    .category-card {
+        min-height: 130px;
+        font-size: 18px;
+    }
+ 
+    .Host_grid {
+        padding: 40px 24px;
+    }
+ 
+    .Host_grid h2 {
+        font-size: 28px;
+    }
+ 
+    .footer {
+        padding: 32px 24px;
+        justify-content: center;
+        text-align: center;
+    }
+ 
+    .footer-links {
+        justify-content: center;
+        gap: 24px;
+    }
+}
+ 
+/* Mobile phones: <= 600px */
+@media (max-width: 600px) {
+ 
+    .navbar {
+        padding: 12px 16px;
+    }
+ 
+    .logo {
+        margin-right: 16px;
+        font-size: 16px;
+    }
+ 
+    .nav-links {
+        gap: 12px;
+    }
+ 
+    .nav-links a {
+        font-size: 12px;
+    }
+ 
+    .nav-right {
+        gap: 12px;
+    }
+ 
+    .signin-btn,
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+ 
+    .hero {
+        padding: 80px 16px 40px;
+        min-height: auto;
+    }
+ 
+    .badge {
+        font-size: 10px;
+    }
+ 
+    .hero h1 {
+        font-size: 32px;
+    }
+ 
+    .hero p {
+        font-size: 13px;
+        max-width: 100%;
+    }
+ 
+    /* stack the search bar on small screens */
+    .search-bar {
+        flex-direction: column;
+        width: 100%;
+    }
+ 
+    .search-bar select,
+    .search-bar input {
+        border-right: none;
+        border-bottom: 1px solid #333;
+        font-size: 13px;
+        padding: 12px;
+    }
+ 
+    .search-bar button {
+        padding: 14px;
+    }
+ 
+    .categories {
+        padding: 50px 16px 0px 16px;
+        min-height: auto;
+    }
+ 
+    .categories h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+ 
+    /* single column category grid on phones */
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+ 
+    .category-card {
+        min-height: 110px;
+        font-size: 16px;
+        padding: 24px 16px;
+    }
+ 
+    .btn {
+        padding: 10px 20px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+    }
+ 
+    .Host_grid {
+        padding: 32px 16px;
+    }
+ 
+    .Host_grid h2 {
+        font-size: 22px;
+    }
+ 
+    .Host_grid p {
+        font-size: 13px;
+    }
+ 
+    .footer {
+        padding: 28px 16px;
+        flex-direction: column;
+        text-align: center;
+    }
+ 
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+ 
+    .reviews-section {
+        padding: 2rem 1rem;
+    }
+ 
+    .reviews-title {
+        font-size: 1.4rem;
+    }
+ 
+    .review-card {
+        padding: 1.5rem;
+        min-height: 150px;
+    }
+}

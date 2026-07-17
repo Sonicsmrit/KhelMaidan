@@ -242,3 +242,85 @@ h4 {
   min-height: 100vh;
   background-color: #0a0a0a;
 }
+@media (max-width: 968px) {
+ 
+  aside {
+    width: 260px;
+    min-width: 260px;
+    padding: 20px 18px 28px 18px;
+    padding-top: 84px;
+    gap: 26px;
+  }
+ 
+  .sport-tab {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+ 
+  .checkbox-item {
+    font-size: 16px;
+  }
+}
+ 
+/* Mobile: <= 600px — stack sidebar above the results instead of beside them */
+@media (max-width: 600px) {
+ 
+  .search-page {
+    flex-direction: column;
+  }
+ 
+  aside {
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    padding: 16px 16px 24px 16px;
+    padding-top: 84px;
+    border-right: none;
+    border-bottom: 1px solid #2a2a2a;
+    gap: 22px;
+  }
+ 
+  .filter-section h4,
+  h4 {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+ 
+  .sport-tabs {
+    gap: 6px;
+  }
+ 
+  .sport-tab {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+ 
+  .checkbox-item {
+    font-size: 15px;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+ 
+  .checkbox-box {
+    width: 20px;
+    height: 20px;
+  }
+ 
+  .radio-group {
+    gap: 10px;
+  }
+ 
+  .radio-item {
+    font-size: 14px;
+  }
+ 
+  .radio-dot {
+    width: 18px;
+    height: 18px;
+  }
+ 
+  .btn-clear {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+}

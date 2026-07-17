@@ -179,3 +179,102 @@
     font-weight: 600;
     margin-top: 8px !important;
 }
+
+@media (max-width: 900px) {
+ 
+    .dashboard {
+        padding: 60px 32px;
+    }
+ 
+    .dashboard-card {
+        padding: 24px;
+    }
+ 
+    .venue-image,
+    .upload-placeholder {
+        height: 180px;
+    }
+}
+ 
+/* Mobile: <= 600px */
+@media (max-width: 600px) {
+ 
+    .dashboard {
+        padding: 48px 16px;
+    }
+ 
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+ 
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+ 
+    .dashboard-subtitle {
+        font-size: 0.85rem;
+    }
+ 
+    .dashboard-card {
+        padding: 18px;
+        border-radius: 10px;
+    }
+ 
+    .venue-image,
+    .upload-placeholder {
+        height: 160px;
+    }
+ 
+    .form-group {
+        margin-bottom: 16px;
+    }
+ 
+    .form-group input {
+        padding: 11px 12px;
+        font-size: 0.9rem;
+    }
+ 
+    .save-btn {
+        width: 100%;
+        padding: 13px 24px;
+    }
+ 
+    /* stack the listing preview: image on top, info below */
+    .listing-preview {
+        flex-direction: column;
+        gap: 12px;
+    }
+ 
+    .listing-img,
+    .listing-img-placeholder {
+        width: 100%;
+        height: 160px;
+    }
+ 
+    .listing-info h3 {
+        font-size: 1rem;
+    }
+ 
+    .listing-info p {
+        font-size: 0.85rem;
+    }
+}
+ 
+/* Small phones: <= 380px */
+@media (max-width: 380px) {
+ 
+    .dashboard {
+        padding: 40px 12px;
+    }
+ 
+    .dashboard-title {
+        font-size: 1.3rem;
+    }
+ 
+    .dashboard-card {
+        padding: 14px;
+    }
+}
