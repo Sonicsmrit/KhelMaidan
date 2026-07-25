@@ -1,51 +1,102 @@
-# React + Vite
+# KhelMaidan
 
-# To get started run these commands.
+A sports venue booking platform built to make finding and reserving futsal courts, basketball courts, and other sports venues simple and fast.
 
-> DO THIS
+**Live demo:** [khelmaidan.onrender.com](https://khelmaidan.onrender.com)
+
+## Overview
+
+KhelMaidan connects players with sports venues across the Kathmandu Valley. Users can browse available venues, check details, and book time slots, while venue owners get a way to manage listings all through a fast, modern web interface.
+
+## Tech Stack
+
+- **React** — UI library
+- **Vite** — build tool and dev server
+- **React Router** — client-side routing and role-based navigation
+- **CSS** — custom dark/moss theming
+- **Render** — deployment
+
+## Features
+
+- Browse and search sports venues
+- Role-based routing (players vs. venue owners)
+- Persistent session/data handling via `localStorage`
+- Dark, neon-mossy green UI theme
+
+## Getting Started
+
+Clone the repo and install dependencies:
 
 ```bash
 git clone https://github.com/Sonicsmrit/KhelMaidan.git
 cd KhelMaidan
 npm install
 ```
-## Than you can do 
+
+Run the development server:
+
 ```bash
 npm run dev
 ```
-to run it on local host. 
 
-## Rules.
+This will start the app on your local host (Vite will print the exact port.
 
-Please write the names of the files you have created/changed, and what things you have added in this order.
+## Building for Production
 
-Example:
 ```bash
-Created Home.jsx, score.jsx
+npm run build
+```
+
+## Project Structure
+
+```
+KhelMaidan/
+├── public/          # Static assets
+├── src/             # Application source code
+├── index.html       # App entry point
+├── package.json     # Dependencies and scripts
+└── vite.config.js    # Vite configuration
+```
+
+## Contributing
+
+This project follows a simple branch-based workflow — no direct commits to `master`.
+
+1. **Create a feature branch**
+
+   ```bash
+   git checkout -b feature-your-feature-name
+   ```
+
+2. **Commit your changes**
+
+   ```bash
+   git add .
+   git commit -m "Add your feature"
+   git push origin feature-your-feature-name
+   ```
+
+3. **Open a Pull Request**
+
+   Go to the repo on GitHub, click **Compare & pull request**, and submit your branch for review. Once approved, it'll be merged into `master`.
+
+### Commit message convention
+
+To make it easy to track what changed and why, structure your commit/PR description like this:
+
+```
+Created Home.jsx, Score.jsx
 Edited Home.jsx, Venue.jsx
 
-Worked on: Created the landing page on our website
+Worked on: Landing page layout and venue score display
 ```
 
-This will help us debug faster!
+This keeps the history readable and makes debugging much faster for the whole team.
 
-# Branch Team Work Flow:
+## License
 
-- You must follow these steps to contribute
-1. Create an isolated "feature" branch locally
->> You create a temporary branch locally
-```powershell
-git checkout -b feature-login-page
-```
-2. Code and push only to their side-branch
->> write code, commit it, and push it to their unique branch on GitHub
-```powershell
-git add .
-git commit -m "Add login page UI"
-git push origin feature-login-page
-```
-3.  Open a Pull Request (PR)
->> When you go to github you will see a yellow banner asking to "Compare & pull request". You click that to submit their code for your review.
+No license specified yet — all rights reserved by the author unless stated otherwise.
 
+## Author
 
-I will review the code and merge it to the main branch.
+Built by [Sonic](https://github.com/Sonicsmrit) as part of a BSc CSIT project.
