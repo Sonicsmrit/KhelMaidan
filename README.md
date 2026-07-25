@@ -96,7 +96,3 @@ This keeps the history readable and makes debugging much faster for the whole te
 ## License
 
 No license specified yet — all rights reserved by the author unless stated otherwise.
-
-## Author
-
-Built by [Sonic](https://github.com/Sonicsmrit) as part of a BSc CSIT project.
